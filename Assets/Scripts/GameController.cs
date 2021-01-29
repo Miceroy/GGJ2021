@@ -6,11 +6,14 @@ public class GameController : MonoBehaviour
 {
     List<GameComponent> m_components;
 
-    void registerComponent(GameComponent newComponent) {
+    public void registerComponent(GameComponent newComponent)
+    {
+        Debug.LogAssertion("Comp registered");
         m_components.Add(newComponent);
     }
 
-    void unregisterComponent(GameComponent newComponent) {
+    public void unregisterComponent(GameComponent newComponent)
+    {
         m_components.Remove(newComponent);
     }
 
