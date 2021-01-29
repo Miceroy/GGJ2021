@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
 
     public void registerComponent(GameComponent newComponent)
     {
-        Debug.LogAssertion("Comp registered");
         m_components.Add(newComponent);
     }
 
