@@ -14,7 +14,7 @@ public class PickItemFromScene : MonoBehaviour
     {
         controls = new PlayerControls();
         action1 = controls.Player.Action1;
-        action2 = controls.Player.Action1;
+        action2 = controls.Player.Action2;
     }
 
     void OnEnable()
