@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     List<GameComponent> m_components = new List<GameComponent>();
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
+    List<DogController> m_dogs = new List<DogController>();
+    List<TaskGiverController> m_taskGivers = new List<TaskGiverController>();
 
     public void registerComponent(GameComponent newComponent)
     {
@@ -20,6 +22,11 @@ public class GameController : MonoBehaviour
         {
             m_players.Add((PlayerController)newComponent);
             Debug.Log("# Players: " + m_players.Count);
+        }
+        if (newComponent.GetType() == typeof(DogController))
+        {
+            m_dogs.Add((DogController)newComponent);
+            Debug.Log("# Dogs: " + m_dogs.Count);
         }
     }
 
@@ -67,6 +74,32 @@ public class GameController : MonoBehaviour
             Debug.LogAssertion("No players found");
         }
         return m_players[0];
+    }
+
+    public DogController getDog()
+    {
+        if (m_dogs.Count > 1)
+        {
+            Debug.LogAssertion("Found many dogs");
+        }
+        else if (m_dogs.Count < 1)
+        {
+            Debug.LogAssertion("No dogs found");
+        }
+        return m_dogs[0];
+    }
+
+    public TaskGiverController getTaskGiver()
+    {
+        if (m_taskGivers.Count > 1)
+        {
+            Debug.LogAssertion("Found many m_taskGivers found");
+        }
+        else if (m_taskGivers.Count < 1)
+        {
+            Debug.LogAssertion("No m_taskGivers found");
+        }
+        return m_taskGivers[0];
     }
 
     // Start is called before the first frame update
