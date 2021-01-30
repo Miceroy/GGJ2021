@@ -46,6 +46,5 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveSideways = transform.right * move.x * moveSpeed * Time.deltaTime;
         characterController.Move(moveForward + moveSideways);
         characterController.Move(body.velocity * Time.deltaTime);
-
     }
 }

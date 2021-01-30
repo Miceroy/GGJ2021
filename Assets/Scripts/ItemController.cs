@@ -11,7 +11,8 @@ using UnityEngine;
 
 public class ItemController : GameComponent
 {
-    bool hlState = false;
+    [SerializeField] GameObject hightLightObject = null;
+
     [SerializeField] ItemType thisItemType = ItemType.NONE;
     [SerializeField] ItemType nextClueType = ItemType.NONE;
 
@@ -29,23 +30,30 @@ public class ItemController : GameComponent
         return thisItemType;
     }
 
+    private void Start()
+    {
+        if (hightLightObject == null)
+        {
+            Debug.LogAssertion("No highlight object defined for Item!");
+        }
+        hightLightObject.SetActive(false);
+    }
+
     public void highlight()
     {
-        if (!hlState)
+        if (!hightLightObject.activeSelf)
         {
-            Debug.Log("TODO: Item highlight");
-            //gameObject.transform.localScale.Set(1.5f, 1.5f, 1.5f);
-            hlState = true;
+            //Debug.Log("TODO: Item highlight");
+            hightLightObject.SetActive(true);
         }
     }
 
     public void unHighlight()
     {
-        if (hlState)
+        if (hightLightObject.activeSelf)
         {
-            Debug.Log("TODO: Item unhighlight");
-            //gameObject.transform.localScale.Set(1.0f, 1.0f, 1.0f);
-            hlState = false;
+            //Debug.Log("TODO: Item unhighlight");
+            hightLightObject.SetActive(false);
         }
     }
 }
