@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     List<GameComponent> m_components = new List<GameComponent>();
     List<ItemController> m_items = new List<ItemController>();
+    List<PlayerController> m_players= new List<PlayerController>();
 
     public void registerComponent(GameComponent newComponent)
     {
@@ -14,6 +15,11 @@ public class GameController : MonoBehaviour
         {
             m_items.Add((ItemController)newComponent);
             Debug.Log("# Items: " + m_items.Count);
+        }
+        if (newComponent.GetType() == typeof(PlayerController))
+        {
+            m_players.Add((PlayerController)newComponent);
+            Debug.Log("# Players: " + m_players.Count);
         }
     }
 
@@ -50,12 +56,25 @@ public class GameController : MonoBehaviour
         return foundItems[0];
     }
 
-    // Start is called before the first frame update
-  /*  void Start() {
+    public PlayerController getPlayer()
+    {
+        if (m_players.Count > 1)
+        {
+            Debug.LogAssertion("Found many players found");
+        }
+        else if (m_players.Count < 1)
+        {
+            Debug.LogAssertion("No players found");
+        }
+        return m_players[0];
     }
-*/
+
+    // Start is called before the first frame update
+    /*  void Start() {
+      }
+  */
     // Update is called once per frame
-   /* void Update() {
-       // Debug.Log("Num Objects: " + m_components.Count);
-    }*/
+    /* void Update() {
+        // Debug.Log("Num Objects: " + m_components.Count);
+     }*/
 }

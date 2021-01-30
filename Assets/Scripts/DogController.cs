@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class DogController : GameComponent
 {
+    PlayerController player;
     NavMeshAgent agent;
 
     ItemType nextClueType = ItemType.NONE;
@@ -14,6 +15,7 @@ public class DogController : GameComponent
     {
         agent = GetComponent<NavMeshAgent>();
         navigateToClue(ItemType.SHUE);
+        player = getGameController().getPlayer();
     }
 
     void navigateToClue(ItemType clue)
