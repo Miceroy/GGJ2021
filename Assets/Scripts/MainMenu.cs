@@ -21,4 +21,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
         Debug.Log("Scene has been loaded");
     }
+    public void Quitgame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
 }
