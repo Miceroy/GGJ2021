@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6702748476018914621}
   - component: {fileID: 7043447693849322796}
   - component: {fileID: 7170092424063681602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ItemPants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1636355837697347017}
   - component: {fileID: 9198877261738877310}
   - component: {fileID: 312354156368087349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

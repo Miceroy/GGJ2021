@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10.0f;
 
+    Rigidbody body;
     PlayerControls controls;
     InputAction moveAction;
     CharacterController characterController;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        body = GetComponent<Rigidbody>();
     }
 
     private void Awake()
@@ -43,5 +45,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveForward = transform.forward * move.y * moveSpeed * Time.deltaTime;
         Vector3 moveSideways = transform.right * move.x * moveSpeed * Time.deltaTime;
         characterController.Move(moveForward + moveSideways);
+        characterController.Move(body.velocity * Time.deltaTime);
+
     }
 }
