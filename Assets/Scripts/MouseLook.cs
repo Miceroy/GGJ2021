@@ -29,7 +29,7 @@ public class MouseLook : MonoBehaviour
 
     void OnDisable()
     {
-        controls.Player.Enable();
+        controls.Player.Disable();
     }
 
 

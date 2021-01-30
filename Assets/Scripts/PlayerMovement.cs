@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnDisable()
     {
-        controls.Player.Enable();
+        controls.Player.Disable();
     }
 
 
