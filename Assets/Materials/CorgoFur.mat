@@ -68,10 +68,10 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FurDensity: 2
-    - _FurLength: 0.038
+    - _FurDensity: 1.254
+    - _FurLength: 0.057
     - _FurShading: 0
-    - _FurThinness: 10
+    - _FurThinness: 2.83
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
