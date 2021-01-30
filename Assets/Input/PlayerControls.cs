@@ -33,6 +33,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action1"",
+                    ""type"": ""Button"",
+                    ""id"": ""0aab1a21-bd5a-496c-ac74-6cde886d7b6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action2"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3a69c2f-7487-49a0-a478-a90e04534f06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -222,6 +238,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""306b3db6-d613-4dce-92a8-04a98be3dee5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b03c765c-42bf-4be6-a87d-5482a18a00f2"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -244,6 +282,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Action1 = m_Player.FindAction("Action1", throwIfNotFound: true);
+        m_Player_Action2 = m_Player.FindAction("Action2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         // Menu
@@ -299,12 +339,16 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Action1;
+    private readonly InputAction m_Player_Action2;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Action1 => m_Wrapper.m_Player_Action1;
+        public InputAction @Action2 => m_Wrapper.m_Player_Action2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -320,6 +364,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Action1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction1;
+                @Action1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction1;
+                @Action1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction1;
+                @Action2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction2;
+                @Action2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction2;
+                @Action2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction2;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,6 +380,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Action1.started += instance.OnAction1;
+                @Action1.performed += instance.OnAction1;
+                @Action1.canceled += instance.OnAction1;
+                @Action2.started += instance.OnAction2;
+                @Action2.performed += instance.OnAction2;
+                @Action2.canceled += instance.OnAction2;
             }
         }
     }
@@ -388,6 +444,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnAction1(InputAction.CallbackContext context);
+        void OnAction2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
