@@ -5,16 +5,25 @@ using UnityEngine.InputSystem;
 
 public class PickItemFromScene : MonoBehaviour
 {
+    [SerializeField] int layerNumberToPick = 8;
+
     PlayerController player;
     PlayerControls controls;
-    InputAction action1;
-    InputAction action2;
+    ItemController prevItem = null;
 
     private void Awake()
     {
         controls = new PlayerControls();
-        action1 = controls.Player.Action1;
-        action2 = controls.Player.Action2;
+        controls.Player.Action1.performed += _ => {
+            ItemController item = pickItem();
+            if (item != null)
+                player.Action1(item);
+        };
+        controls.Player.Action2.performed += _ => {
+            ItemController item = pickItem();
+            if (item != null)
+                player.Action2(item);
+        };
     }
 
     void OnEnable()
@@ -27,17 +36,44 @@ public class PickItemFromScene : MonoBehaviour
         controls.Player.Disable();
     }
 
-
-/*
-    // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponent<PlayerController>();
     }
-*/
-    // Update is called once per frame
+
+    ItemController pickItem()
+    {
+        Vector3 dir = Camera.main.transform.forward;
+        Vector3 pos = Camera.main.transform.position;
+        int layerMask = 1 << layerNumberToPick;
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(pos, dir, out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.DrawRay(pos, dir * hit.distance, Color.yellow);
+            return hit.transform.gameObject.GetComponent<ItemController>();
+        }
+        else
+        {
+            Debug.DrawRay(pos, dir * hit.distance, Color.white);
+        }
+
+        return null;
+    }
+
     void Update()
     {
-        
+        ItemController item = pickItem();
+        if(prevItem == null && item != null)
+        {
+            // Item highlight
+            item.highlight();
+        }
+        else if(prevItem != null && item == null)
+        {
+            // Item unhighlinght
+            prevItem.unHighlight();
+        }
+        prevItem = item;
     }
 }

@@ -11,8 +11,9 @@ using UnityEngine;
 
 public class ItemController : GameComponent
 {
-    [SerializeField] ItemType thisItemType;
-    [SerializeField] ItemType nextClueType;
+    bool hlState = false;
+    [SerializeField] ItemType thisItemType = ItemType.NONE;
+    [SerializeField] ItemType nextClueType = ItemType.NONE;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,18 +29,23 @@ public class ItemController : GameComponent
         return thisItemType;
     }
 
-    //When the Primitive exits the collision, it will change Color
-   /* private void OnTriggerExit(Collider other)
+    public void highlight()
     {
-        if (other.gameObject.tag == "Dog")
+        if (!hlState)
         {
-            Debug.Log("Dog far from item");
+            Debug.Log("TODO: Item highlight");
+            //gameObject.transform.localScale.Set(1.5f, 1.5f, 1.5f);
+            hlState = true;
         }
-    }*/
+    }
 
-    // Update is called once per frame
-    /*void Update()
+    public void unHighlight()
     {
-        
-    }*/
+        if (hlState)
+        {
+            Debug.Log("TODO: Item unhighlight");
+            //gameObject.transform.localScale.Set(1.0f, 1.0f, 1.0f);
+            hlState = false;
+        }
+    }
 }
