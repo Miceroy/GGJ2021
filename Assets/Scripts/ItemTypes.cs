@@ -2,8 +2,6 @@
 public enum ItemType
 {
     NONE,
-    SHUE,
-    SOCK,
-    PANTS,
-    SUSPECTED
+    TARGET,
+    DISTRACT
 }

@@ -18,11 +18,16 @@ public class ItemController : GameComponent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Dog")
+        /*if (other.gameObject.tag == "Dog")
         {
            // Debug.Log("Dog near to item");
-            other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
-        }
+           //other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
+        }*/
+    }
+
+    public ItemType getNextItemType()
+    {
+        return nextClueType;
     }
 
     public ItemType getItemType()
@@ -41,18 +46,18 @@ public class ItemController : GameComponent
 
     public void highlight()
     {
-        if (!hightLightObject.activeSelf)
+       // if (!hightLightObject.activeSelf)
         {
-            //Debug.Log("TODO: Item highlight");
+            //Debug.Log("Item highlight");
             hightLightObject.SetActive(true);
         }
     }
 
     public void unHighlight()
     {
-        if (hightLightObject.activeSelf)
+       // if (hightLightObject.activeSelf)
         {
-            //Debug.Log("TODO: Item unhighlight");
+            //Debug.Log("Item unhighlight");
             hightLightObject.SetActive(false);
         }
     }
