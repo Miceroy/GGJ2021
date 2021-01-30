@@ -36,25 +36,5 @@ public class GameComponent : MonoBehaviour
                 ctrl.unregisterComponent(this);
             }
         }
-        else if (gos.Length > 1)
-        {
-            Debug.LogAssertion("Too many GameControllers in the scene.");
-        }
-        else
-        {
-            Debug.LogAssertion("No GameControllers found from scene.");
-        }
     }
-
-    /*// Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
 }
