@@ -35,14 +35,14 @@ Material:
     - _AnimSpeedX: 1
     - _AnimSpeedY: 1
     - _AnimSpeedZ: 1
-    - _FurDensity: 1.063
-    - _FurLength: 0.028
-    - _FurShading: 0.478
+    - _FurDensity: 2
+    - _FurLength: 0.09
+    - _FurShading: 0.379
     - _FurThinness: 1.05
     - _Height: 0.261
-    - _RimPower: 0
+    - _RimPower: 1.91
     - _Scale: 0.0056
-    - _Shininess: 8
+    - _Shininess: 0.01
     - _Strength: 0.847
     m_Colors:
     - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
