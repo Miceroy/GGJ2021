@@ -28,7 +28,11 @@ public class PlayerController : GameComponent
             ItemController item = other.gameObject.GetComponent<ItemController>();
          //   item.highlight();
             Debug.Log("PlayerController near to Distract");
-          //  if (item == getGameController().getCurrentItem())
+            if (item.dogNear)
+            {
+                getGameController().playWrongSound();
+            }
+            //  if (item == getGameController().getCurrentItem())
             {
             //    item.gameObject.active = false;
                // getGameController().gotoNextItem();

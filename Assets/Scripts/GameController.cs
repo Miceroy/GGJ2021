@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] AudioSource wrongSound = null;
     [SerializeField] AudioSource pickSound = null;
     private bool stoppedGame = false;
     [SerializeField] Text totalTimeText = null;
@@ -40,8 +41,19 @@ public class GameController : MonoBehaviour
 
     public void gotoNextItem()
     {
-        pickSound.Play();
-           curIndex++;
+        if (curIndex >= 0)
+        {
+            pickSound.Play();
+        }
+        curIndex++;
+    }
+
+    public void playWrongSound()
+    {
+        if (!wrongSound.isPlaying)
+        {
+            wrongSound.Play();
+        }
     }
 
     void EndGame()
