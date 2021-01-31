@@ -7,6 +7,7 @@ public class DuckCtrl : GameComponent
 {
     [SerializeField] AudioSource sound;
     [SerializeField] ParticleSystem ParticleEffect;
+    [SerializeField] GameObject ankka;
     void die()
     {
         gameObject.SetActive(false);
@@ -18,6 +19,7 @@ public class DuckCtrl : GameComponent
         {
             sound.Play();
             Debug.Log("Duck dies");
+            ankka.SetActive(false);
             Invoke("die", 3.0f);
             ParticleEffect.gameObject.SetActive(true);
         }
