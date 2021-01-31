@@ -45,10 +45,10 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
-        }
+        }*/
 
         if (curIndex >= m_itemsList.Length)
         {

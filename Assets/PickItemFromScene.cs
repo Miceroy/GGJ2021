@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PickItemFromScene : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class PickItemFromScene : MonoBehaviour
             ItemController item = pickItem();
             if (item != null)
                 player.Action2(item);
+        };
+
+        controls.Player.Quit.performed += _ =>
+        {
+            SceneManager.LoadScene(0);
         };
     }
 
