@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] AudioSource pickSound = null;
     private bool stoppedGame = false;
     [SerializeField] Text totalTimeText = null;
     [SerializeField] Text resultText = null;
@@ -38,7 +40,8 @@ public class GameController : MonoBehaviour
 
     public void gotoNextItem()
     {
-        curIndex++;
+        pickSound.Play();
+           curIndex++;
     }
 
     void EndGame()
