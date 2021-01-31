@@ -41,6 +41,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+
+        Cursor.lockState = CursorLockMode.Locked;
         resultText.text = "";
         time = 0;
         gotoNextItem();
