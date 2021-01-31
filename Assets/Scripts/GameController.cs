@@ -17,6 +17,11 @@ public class GameController : MonoBehaviour
         curIndex++;
     }
 
+    void EndGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public ItemController getCurrentItem()
     {
         if (curIndex < m_itemsList.Length)
@@ -31,7 +36,8 @@ public class GameController : MonoBehaviour
     {
        if(curIndex >= m_itemsList.Length)
         {
-            SceneManager.LoadScene(0);
+            // End game
+            Invoke("EndGame", 3.0f);
         }
     }
 
