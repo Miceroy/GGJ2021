@@ -12,12 +12,12 @@ public class GameController : MonoBehaviour
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
 
-    void gotoNextItem()
+    public void gotoNextItem()
     {
         curIndex++;
     }
 
-    ItemController getCurrentItem()
+    public ItemController getCurrentItem()
     {
         if (curIndex < m_itemsList.Length)
         {
