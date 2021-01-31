@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
         if (!stoppedGame)
         {
             time += Time.deltaTime;
-            totalTimeText.text = "Total time: " + time.ToString();
+            totalTimeText.text = "Time: " + time.ToString();
         }
         /*else
         {*/
