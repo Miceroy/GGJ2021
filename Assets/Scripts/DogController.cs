@@ -16,8 +16,16 @@ public class DogController : GameComponent
         agent = GetComponent<NavMeshAgent>();
       //  navigateToClue(ItemType.SHUE);
         player = getGameController().getPlayer();
-        Vector3 navPos = getGameController().getCurrentItem().transform.position;
-        agent.SetDestination(navPos);
+        
+    }
+
+    private void Update()
+    {
+        if (getGameController().getCurrentItem())
+        {
+            Vector3 navPos = getGameController().getCurrentItem().transform.position;
+            agent.SetDestination(navPos);
+        }
     }
     /*
     void navigateToClue(ItemType clue)

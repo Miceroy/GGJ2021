@@ -10,7 +10,12 @@ public class PlayerController : GameComponent
         {
             ItemController item = other.gameObject.GetComponent<ItemController>();
             item.highlight();
-            // Debug.Log("Dog near to item");
+            //Debug.Log("PlayerController near to item");
+            if(item == getGameController().getCurrentItem())
+            {
+                item.gameObject.active = false;
+                getGameController().gotoNextItem();
+            }
             // other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
         }
     }
