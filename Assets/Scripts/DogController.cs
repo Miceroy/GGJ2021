@@ -25,18 +25,35 @@ public class DogController : GameComponent
         if (distractedItem)
         {
             Vector3 thisPos = transform.position;
-            Vector3 otherPos = distractedItem.transform.position;
-            agent.SetDestination(distractedItem.transform.position);
-            if ((thisPos - otherPos).magnitude < 2 && !distractedItem.gameObject.activeSelf)
+            Vector3 navPos = distractedItem.transform.position;
+            float mag = (thisPos - navPos).magnitude;
+
+            if (mag < 2.0f)
             {
-                distractedItem = null;
+                agent.SetDestination(thisPos);
+                if (!distractedItem.gameObject.activeSelf) {
+                    distractedItem = null;
+                }
+            }
+            else
+            {
+                agent.SetDestination(navPos);
             }
 
         }
         else if (getGameController().getCurrentItem())
         {
+            Vector3 thisPos = transform.position;
             Vector3 navPos = getGameController().getCurrentItem().transform.position;
-            agent.SetDestination(navPos);
+            float mag = (thisPos - navPos).magnitude;
+            if (mag < 2.0f)
+            {
+               // Debug.Log("StopAgent!");
+                agent.SetDestination(thisPos);
+            }
+            else {
+                agent.SetDestination(navPos);
+            }
         }
 
         ItemController[] distract = getGameController().getDistractItems();
