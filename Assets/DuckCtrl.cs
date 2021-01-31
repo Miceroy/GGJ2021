@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Audio;
 
-public class DuckCtrl : MonoBehaviour
+public class DuckCtrl : GameComponent
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioSource sound;
+
+    void die()
     {
-        
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            sound.Play();
+            Debug.Log("Duck dies");
+            Invoke("die", 1.0f);
+        }
+
+        if (other.gameObject.tag == "Distract")
+        {
+
+        }
     }
+
 }

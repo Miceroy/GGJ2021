@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     List<GameComponent> m_components = new List<GameComponent>();
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
+    List<DuckCtrl> m_ducks = new List<DuckCtrl>();
 
     public float time = 0.0f;
 
