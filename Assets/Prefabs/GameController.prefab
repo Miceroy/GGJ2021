@@ -43,3 +43,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d888187e1bea6242bf390def21f7532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_itemsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_distractItemsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
