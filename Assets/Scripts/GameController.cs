@@ -45,7 +45,12 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-       if(curIndex >= m_itemsList.Length)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        if (curIndex >= m_itemsList.Length)
         {
             // End game
             Invoke("EndGame", 3.0f);
