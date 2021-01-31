@@ -22,6 +22,7 @@ public class DuckCtrl : GameComponent
             ankka.SetActive(false);
             Invoke("die", 3.0f);
             ParticleEffect.gameObject.SetActive(true);
+            getGameController().decreaseTime();
         }
 
         if (other.gameObject.tag == "Distract")

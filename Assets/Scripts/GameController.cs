@@ -25,6 +25,11 @@ public class GameController : MonoBehaviour
 
     public float time = 0.0f;
 
+    public void decreaseTime()
+    {
+        time -= 10.0f;
+    }
+
     public int getItemsTotal()
     {
         return m_itemsList.Length;
