@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Audio;
 
+
 public class DuckCtrl : GameComponent
 {
     [SerializeField] AudioSource sound;

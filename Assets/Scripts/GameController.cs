@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] ItemController[] m_distractItemsList;
     int curIndex = -1;
     
+
     List<GameComponent> m_components = new List<GameComponent>();
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
