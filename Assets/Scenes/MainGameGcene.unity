@@ -39021,6 +39021,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1481098563}
     - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: AudioClipperino.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: AudioClipperino.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa6965145e7c4be47ad6e6b770906b15, type: 3}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: AudioClipperino.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a74b49841aab1994a939842f378f220d, type: 3}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: AudioClipperino.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 931f334c9897e214387e19e7934306b5, type: 3}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: AudioClipperino.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0882fdc88e8f7e04cb50e1365a65751d, type: 3}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: AudioClipperino.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 80152e46b981f3a439b95c68cd0c82d5, type: 3}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
       propertyPath: m_distractItemsList.Array.data[0]
       value: 
       objectReference: {fileID: 373848395}

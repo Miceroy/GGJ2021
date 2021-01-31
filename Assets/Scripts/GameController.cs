@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] AudioSource wrongSound = null;
     [SerializeField] AudioSource pickSound = null;
+    public AudioClip[] AudioClipperino;
     private bool stoppedGame = false;
     [SerializeField] Text totalTimeText = null;
     [SerializeField] Text resultText = null;
