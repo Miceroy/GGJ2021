@@ -10,6 +10,6 @@ public class ShowText : GameComponent
     // Update is called once per frame
     void Update()
     {
-        text.text = "" + )getGameController().getItemsTotal()-getGameController().getItemsLeft()) + "/" + getGameController().getItemsTotal();
+        text.text = "" + (getGameController().getItemsTotal()-getGameController().getItemsLeft()) + "/" + getGameController().getItemsTotal();
     }
 }
