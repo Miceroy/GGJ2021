@@ -21,7 +21,7 @@ public class ItemController : GameComponent
         if (other.gameObject.tag == "Dog")
         {
            // Debug.Log("Dog near to item");
-            other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
+           // other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
         }
     }
 

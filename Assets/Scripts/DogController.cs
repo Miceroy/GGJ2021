@@ -14,10 +14,10 @@ public class DogController : GameComponent
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        navigateToClue(ItemType.SHUE);
+      //  navigateToClue(ItemType.SHUE);
         player = getGameController().getPlayer();
     }
-
+    /*
     void navigateToClue(ItemType clue)
     {
         if (clue == ItemType.NONE)
@@ -27,8 +27,8 @@ public class DogController : GameComponent
         }
         else
         {
-            ItemController item = getGameController().getItemOfType(clue);
-            agent.SetDestination(item.gameObject.transform.position);
+           // ItemController item = getGameController().getItemOfType(clue);
+           // agent.SetDestination(item.gameObject.transform.position);
             nextClueType = clue;
             Debug.Log("Dog got new clue to find: " + clue.ToString() + " at position: " + item.gameObject.transform.position.ToString());
         }
@@ -58,7 +58,7 @@ public class DogController : GameComponent
             //Debug.Log("Colliding to wrong type clue. Ignoring.");
         }
     }
-
+    */
     //When the Primitive collides with the walls, it will reverse direction
     private void OnTriggerEnter(Collider other)
     {

@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class PlayerController : GameComponent
 {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Item")
+        {
+            ItemController item = other.gameObject.GetComponent<ItemController>();
+            item.highlight();
+            // Debug.Log("Dog near to item");
+            // other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
+        }
+    }
+
+
     public void Action1(ItemController item)
     {
         Debug.Log("TODO: Player Action1. Item: " + item.name);

@@ -1,12 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] ItemController[] m_itemsList;
+    int curIndex = 0;
+    
     List<GameComponent> m_components = new List<GameComponent>();
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
+
+    void gotoNextItem()
+    {
+        curIndex++;
+    }
+
+    ItemController getCurrentItem()
+    {
+        if (curIndex < m_itemsList.Length)
+        {
+            return m_itemsList[curIndex];
+
+        }
+        return null;
+    }
+
+    void Update()
+    {
+       if(curIndex >= m_itemsList.Length)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 
     public void registerComponent(GameComponent newComponent)
     {
@@ -50,7 +77,8 @@ public class GameController : MonoBehaviour
         }
         else if (foundItems.Count < 1)
         {
-            Debug.LogAssertion("No given items found from level: " + type.ToString());
+            Debug.Log("No given items found from level: " + type.ToString());
+            return null;
         }
 
         return foundItems[0];
@@ -74,7 +102,7 @@ public class GameController : MonoBehaviour
       }
   */
     // Update is called once per frame
-    /* void Update() {
+    // void Update() {
         // Debug.Log("Num Objects: " + m_components.Count);
-     }*/
+    // }
 }
