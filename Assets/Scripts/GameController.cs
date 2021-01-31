@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    private bool stoppedGame = false;
+    [SerializeField] Text totalTimeText = null;
+    [SerializeField] Text resultText = null;
     [SerializeField] ItemController[] m_itemsList;
     [SerializeField] ItemController[] m_distractItemsList;
     int curIndex = -1;
@@ -13,6 +17,13 @@ public class GameController : MonoBehaviour
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
 
+    public float time = 0.0f;
+
+
+    public int getItemsLeft()
+    {
+        return m_itemsList.Length-curIndex;
+    }
     public ItemController[] getDistractItems()
     {
         return m_distractItemsList;
@@ -20,6 +31,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        resultText.text = "";
+        time = 0;
         gotoNextItem();
     }
 
@@ -45,17 +58,23 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Escape))
+        if (!stoppedGame)
         {
-            SceneManager.LoadScene(0);
-        }*/
-
+            time += Time.deltaTime;
+            totalTimeText.text = "Total time: " + time.ToString();
+        }
+        /*else
+        {*/
         if (curIndex >= m_itemsList.Length)
         {
             // End game
+            stoppedGame = true;
             Invoke("EndGame", 3.0f);
+            resultText.text = "Result time: " + time.ToString();
         }
     }
+        /*}
+    }*/
 
     public void registerComponent(GameComponent newComponent)
     {

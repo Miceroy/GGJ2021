@@ -15,7 +15,7 @@ public class PlayerController : GameComponent
             ItemController item = other.gameObject.GetComponent<ItemController>();
             item.highlight();
             //Debug.Log("PlayerController near to item");
-            if(item == getGameController().getCurrentItem())
+            if(item == getGameController().getCurrentItem() && item.dogNear)
             {
                 item.gameObject.active = false;
                 getGameController().gotoNextItem();

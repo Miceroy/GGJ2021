@@ -17,13 +17,24 @@ public class ItemController : GameComponent
     [SerializeField] ItemType nextClueType = ItemType.NONE;
 
     public bool distracting = true;
-
+    public bool dogNear = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Dog")
         {
-           // Debug.Log("Dog near to item");
+            dogNear = true;
+            Debug.Log("Dog near to item");
            // other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Dog")
+        {
+            dogNear = false;
+            Debug.Log("Dog far from item");
+            // other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
         }
     }
 
