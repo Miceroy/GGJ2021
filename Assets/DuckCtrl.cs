@@ -6,7 +6,7 @@ using Unity.Audio;
 public class DuckCtrl : GameComponent
 {
     [SerializeField] AudioSource sound;
-
+    [SerializeField] ParticleSystem ParticleEffect;
     void die()
     {
         gameObject.SetActive(false);
@@ -18,7 +18,8 @@ public class DuckCtrl : GameComponent
         {
             sound.Play();
             Debug.Log("Duck dies");
-            Invoke("die", 1.0f);
+            Invoke("die", 3.0f);
+            ParticleEffect.gameObject.SetActive(true);
         }
 
         if (other.gameObject.tag == "Distract")

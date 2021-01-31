@@ -41,9 +41,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d6d86c74a1a04cd47a631405658742ae, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.381
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -154,6 +154,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7144776857297015748}
   - {fileID: 4605864558593914319}
   m_Father: {fileID: 9107485447589790024}
   m_RootOrder: 0
@@ -205,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 851629598}
+  ParticleEffect: {fileID: 7144776857297015755}
 --- !u!135 &1880864417
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +220,109 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &5267179979667750997
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9107485446531663499}
+    m_Modifications:
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.383
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952668, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_Name
+      value: BloodParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952668, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 7.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].countCurve.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[2].countCurve.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+--- !u!4 &7144776857297015748 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3044311279137952657, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+  m_PrefabInstance: {fileID: 5267179979667750997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7144776857297015755 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3044311279137952670, guid: b2279335a0f4c1342938e1751c9af51e, type: 3}
+  m_PrefabInstance: {fileID: 5267179979667750997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9107485447392845261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724021657028454402, guid: ce2e9573cd719d24793c465a2add33bc, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4724021657028454402, guid: ce2e9573cd719d24793c465a2add33bc, type: 3}
       propertyPath: m_LocalPosition.x
