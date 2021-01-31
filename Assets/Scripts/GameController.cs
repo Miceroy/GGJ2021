@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
         if (!stoppedGame)
         {
             time += Time.deltaTime;
-            totalTimeText.text = "Time: " + time.ToString();
+            totalTimeText.text = "Time: " + time.ToString(".00");
         }
         /*else
         {*/
@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
             // End game
             stoppedGame = true;
             Invoke("EndGame", 3.0f);
-            resultText.text = "Result time: " + time.ToString();
+            resultText.text = "Result time: " + time.ToString(".00");
         }
     }
         /*}
