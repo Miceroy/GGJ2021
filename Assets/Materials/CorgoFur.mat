@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CorgoFur
-  m_Shader: {fileID: 4800000, guid: aa272d47af0b0f545bc71623716c2308, type: 3}
+  m_Shader: {fileID: 4800000, guid: 15382e8f68939374fa7c62c7679c7291, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _FurTex:
+        m_Texture: {fileID: 2800000, guid: bdb2609e96f7594478238ec7044490bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 0495a239d5a19df4fa7b59d20da4a848, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Noise:
         m_Texture: {fileID: 2800000, guid: e5fc4ef76f39a4c42886b24bc6172cf8, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -27,13 +35,21 @@ Material:
     - _AnimSpeedX: 1
     - _AnimSpeedY: 1
     - _AnimSpeedZ: 1
+    - _FurDensity: 1.063
+    - _FurLength: 0.028
+    - _FurShading: 0.478
+    - _FurThinness: 1.05
     - _Height: 0.261
     - _RimPower: 0
     - _Scale: 0.0056
+    - _Shininess: 8
     - _Strength: 0.847
     m_Colors:
     - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.8839662, b: 0.4669811, a: 1}
+    - _ForceGlobal: {r: 0, g: 0, b: 0, a: 0}
+    - _ForceLocal: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.6, g: 1, b: 1, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 1}
     - _TColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
