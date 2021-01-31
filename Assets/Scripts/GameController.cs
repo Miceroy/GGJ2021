@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] float deltaFromDuck = 5.0f;
     [SerializeField] GameObject info = null;
     [SerializeField] AudioSource wrongSound = null;
     [SerializeField] AudioSource pickSound = null;
@@ -99,7 +100,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (time > 10.0f)
+        if (time > deltaFromDuck)
         {
             info.SetActive(false);
         }

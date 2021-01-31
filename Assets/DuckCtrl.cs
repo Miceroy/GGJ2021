@@ -23,6 +23,7 @@ public class DuckCtrl : GameComponent
             Debug.Log("Duck dies");
             ankka.SetActive(false);
             Invoke("die", 3.0f);
+            GetComponent<Collider>().enabled = false;
             ParticleEffect.gameObject.SetActive(true);
             getGameController().decreaseTime();
         }
