@@ -18,7 +18,7 @@ public class DuckCtrl : GameComponent
         {
             sound.Play();
             Debug.Log("Duck dies");
-            Invoke("die", 1.0f);
+            Invoke("die", 3.0f);
             ParticleEffect.gameObject.SetActive(true);
         }
 
