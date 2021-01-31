@@ -6,11 +6,22 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField] ItemController[] m_itemsList;
-    int curIndex = 0;
+    [SerializeField] ItemController[] m_distractItemsList;
+    int curIndex = -1;
     
     List<GameComponent> m_components = new List<GameComponent>();
     List<ItemController> m_items = new List<ItemController>();
     List<PlayerController> m_players= new List<PlayerController>();
+
+    public ItemController[] getDistractItems()
+    {
+        return m_distractItemsList;
+    }
+
+    private void Start()
+    {
+        gotoNextItem();
+    }
 
     public void gotoNextItem()
     {
@@ -24,7 +35,7 @@ public class GameController : MonoBehaviour
 
     public ItemController getCurrentItem()
     {
-        if (curIndex < m_itemsList.Length)
+        if (curIndex >= 0 && curIndex < m_itemsList.Length)
         {
             return m_itemsList[curIndex];
 

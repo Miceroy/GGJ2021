@@ -9,6 +9,7 @@ public class DogController : GameComponent
     NavMeshAgent agent;
 
     ItemType nextClueType = ItemType.NONE;
+    ItemController distractedItem = null;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,36 @@ public class DogController : GameComponent
 
     private void Update()
     {
-        if (getGameController().getCurrentItem())
+        if (distractedItem)
+        {
+            Vector3 thisPos = transform.position;
+            Vector3 otherPos = distractedItem.transform.position;
+            agent.SetDestination(distractedItem.transform.position);
+            if ((thisPos - otherPos).magnitude < 2 && !distractedItem.gameObject.activeSelf)
+            {
+                distractedItem = null;
+            }
+
+        }
+        else if (getGameController().getCurrentItem())
         {
             Vector3 navPos = getGameController().getCurrentItem().transform.position;
             agent.SetDestination(navPos);
+        }
+
+        ItemController[] distract = getGameController().getDistractItems();
+        for( int i=0; i<distract.Length; ++i)
+        {
+            Vector3 thisPos = transform.position;
+            Vector3 otherPos = distract[i].transform.position;
+            if(distract[i].distracting && (thisPos-otherPos).magnitude < 10)
+            {
+               // Debug.Log("Dog distract");
+                distract[i].distracting = false;
+                distractedItem = distract[i];
+                Vector3 navPos = distract[i].transform.position;
+                agent.SetDestination(navPos);
+            }
         }
     }
     /*

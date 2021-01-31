@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dog
   - Item
+  - Distract
   layers:
   - Default
   - TransparentFX

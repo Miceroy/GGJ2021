@@ -49,6 +49,7 @@ MonoBehaviour:
   hightLightObject: {fileID: 2950537965730803514}
   thisItemType: 0
   nextClueType: 0
+  distracting: 0
 --- !u!135 &5275162163760846948
 SphereCollider:
   m_ObjectHideFlags: 0

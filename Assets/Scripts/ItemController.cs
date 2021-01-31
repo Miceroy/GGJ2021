@@ -16,6 +16,8 @@ public class ItemController : GameComponent
     [SerializeField] ItemType thisItemType = ItemType.NONE;
     [SerializeField] ItemType nextClueType = ItemType.NONE;
 
+    public bool distracting = true;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Dog")
