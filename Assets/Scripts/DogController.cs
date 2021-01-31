@@ -7,6 +7,7 @@ public class DogController : GameComponent
 {
     PlayerController player;
     NavMeshAgent agent;
+    public Animator animator;
 
     ItemType nextClueType = ItemType.NONE;
     ItemController distractedItem = null;
@@ -25,11 +26,13 @@ public class DogController : GameComponent
         agent = GetComponent<NavMeshAgent>();
       //  navigateToClue(ItemType.SHUE);
         player = getGameController().getPlayer();
+        //animator = GetComponent<Animator>();
         
     }
 
     private void Update()
     {
+        float s = agent.velocity.magnitude; //GetComponent<Rigidbody>().velocity.magnitude;
         if (distractedItem)
         {
             Vector3 thisPos = transform.position;
@@ -93,6 +96,20 @@ public class DogController : GameComponent
                 Vector3 navPos = distract[i].transform.position;
                 agent.SetDestination(navPos);
             }
+        }
+
+        
+        if (s < 0.2)
+        {
+            Debug.Log(s.ToString());
+            Debug.Log("Not Moving");
+            animator.SetBool("IsMoving", false);
+        }
+        else
+        {
+            Debug.Log(s.ToString());
+            Debug.Log("Is Moving");
+            animator.SetBool("IsMoving", true);
         }
     }
     /*
