@@ -59,6 +59,10 @@ public class DogController : GameComponent
             {
                 retunrToPlayer = null;
             }
+            else
+            {
+                agent.SetDestination(navPos);
+            }
         }
         else if (getGameController().getCurrentItem())
         {
