@@ -22,6 +22,11 @@ public class GameController : MonoBehaviour
 
     public float time = 0.0f;
 
+    public int getItemsTotal()
+    {
+        return m_itemsList.Length;
+    }
+
 
     public int getItemsLeft()
     {
@@ -47,6 +52,15 @@ public class GameController : MonoBehaviour
         }
         curIndex++;
     }
+
+    /*public void gotoPrevItem()
+    {
+        if (curIndex >= 0)
+        {
+        //    pickSound.Play();
+        }
+        curIndex--;
+    }*/
 
     public void playWrongSound()
     {
