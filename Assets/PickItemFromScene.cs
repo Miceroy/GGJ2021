@@ -16,14 +16,14 @@ public class PickItemFromScene : MonoBehaviour
     {
         controls = new PlayerControls();
         controls.Player.Action1.performed += _ => {
-            ItemController item = pickItem();
+           /* ItemController item = pickItem();
             if (item != null)
-                player.Action1(item);
+             */   player.Action1();
         };
         controls.Player.Action2.performed += _ => {
-            ItemController item = pickItem();
+            /*ItemController item = pickItem();
             if (item != null)
-                player.Action2(item);
+               */ player.Action2();
         };
 
         controls.Player.Quit.performed += _ =>

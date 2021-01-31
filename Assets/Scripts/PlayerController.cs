@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : GameComponent
 {
+    [SerializeField] DogController dog = null;
+    [SerializeField] AudioSource whistle = null;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Item")
@@ -22,11 +26,11 @@ public class PlayerController : GameComponent
         if (other.gameObject.tag == "Distract")
         {
             ItemController item = other.gameObject.GetComponent<ItemController>();
-            item.highlight();
+         //   item.highlight();
             Debug.Log("PlayerController near to Distract");
           //  if (item == getGameController().getCurrentItem())
             {
-                item.gameObject.active = false;
+            //    item.gameObject.active = false;
                // getGameController().gotoNextItem();
             }
             // other.gameObject.GetComponent<DogController>().nextClue(thisItemType, nextClueType);
@@ -34,14 +38,16 @@ public class PlayerController : GameComponent
     }
 
 
-    public void Action1(ItemController item)
+    public void Action1()
     {
-        Debug.Log("TODO: Player Action1. Item: " + item.name);
+        Debug.Log("Whistle!");
+        dog.hearWhistle();
+        //   getGameController().getdog
+        whistle.Play();
     }
 
-    public void Action2(ItemController item)
+    public void Action2()
     {
-        Debug.Log("TODO: Player Action2. Item: " + item.name);
     }
 
     private void Start()

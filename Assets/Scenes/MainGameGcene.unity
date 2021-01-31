@@ -38741,6 +38741,17 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &913674706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9077881518252521883, guid: 5bd78a5f422cac24f9f7c9dd4bdf0f92, type: 3}
+  m_PrefabInstance: {fileID: 173749995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c653607a3189c72469a360c19e9bdc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &928146860
 Mesh:
   m_ObjectHideFlags: 0
@@ -81458,6 +81469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1240099254383777371, guid: 858b39139e7677946befee21f9ee162e, type: 3}
+      propertyPath: dog
+      value: 
+      objectReference: {fileID: 913674706}
     - target: {fileID: 1240099254383777372, guid: 858b39139e7677946befee21f9ee162e, type: 3}
       propertyPath: m_RootOrder
       value: 2

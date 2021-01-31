@@ -10,6 +10,14 @@ public class DogController : GameComponent
 
     ItemType nextClueType = ItemType.NONE;
     ItemController distractedItem = null;
+    PlayerController retunrToPlayer = null;
+
+    public void hearWhistle()
+    {
+        distractedItem = null;
+        retunrToPlayer = player;
+        agent.SetDestination(retunrToPlayer.transform.position);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +39,26 @@ public class DogController : GameComponent
             if (mag < 2.0f)
             {
                 agent.SetDestination(thisPos);
-                if (!distractedItem.gameObject.activeSelf) {
+                if (!distractedItem.gameObject.activeSelf)
+                {
                     distractedItem = null;
                 }
             }
             else
             {
-                agent.SetDestination(navPos);
+                //    agent.SetDestination(navPos);
             }
 
+        }
+        else if (retunrToPlayer)
+        {
+            Vector3 thisPos = transform.position;
+            Vector3 navPos = retunrToPlayer.transform.position;
+            float mag = (thisPos - navPos).magnitude;
+            if (mag < 2.0f)
+            {
+                retunrToPlayer = null;
+            }
         }
         else if (getGameController().getCurrentItem())
         {
@@ -48,10 +67,11 @@ public class DogController : GameComponent
             float mag = (thisPos - navPos).magnitude;
             if (mag < 2.0f)
             {
-               // Debug.Log("StopAgent!");
+                // Debug.Log("StopAgent!");
                 agent.SetDestination(thisPos);
             }
-            else {
+            else
+            {
                 agent.SetDestination(navPos);
             }
         }
