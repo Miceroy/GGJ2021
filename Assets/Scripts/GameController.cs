@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] GameObject info = null;
     [SerializeField] AudioSource wrongSound = null;
     [SerializeField] AudioSource pickSound = null;
     public AudioClip[] AudioClipperino;
@@ -91,6 +92,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (time > 10.0f)
+        {
+            info.SetActive(false);
+        }
+
         if (!stoppedGame)
         {
             time += Time.deltaTime;

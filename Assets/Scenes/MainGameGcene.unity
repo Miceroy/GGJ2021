@@ -39066,6 +39066,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
+      propertyPath: info
+      value: 
+      objectReference: {fileID: 433628423}
+    - target: {fileID: 4324237640883302191, guid: d668f559921080a468908c2929d430f3, type: 3}
       propertyPath: pickSound
       value: 
       objectReference: {fileID: 177588064}
