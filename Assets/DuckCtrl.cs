@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Audio;
 
+
+
 public class DuckCtrl : GameComponent
 {
     [SerializeField] AudioSource sound;
@@ -22,6 +24,7 @@ public class DuckCtrl : GameComponent
             ankka.SetActive(false);
             Invoke("die", 3.0f);
             ParticleEffect.gameObject.SetActive(true);
+            getGameController().decreaseTime();
         }
 
         if (other.gameObject.tag == "Distract")
