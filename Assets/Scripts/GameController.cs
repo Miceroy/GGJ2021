@@ -18,7 +18,9 @@ public class GameController : MonoBehaviour
     [SerializeField] ItemController[] m_itemsList;
     [SerializeField] ItemController[] m_distractItemsList;
     int curIndex = -1;
-    
+    public GameObject CorgiTextindicator1;
+    public GameObject CorgiTextindicator2;
+    public GameObject PlayerCamera;
 
 
     List<GameComponent> m_components = new List<GameComponent>();
@@ -62,9 +64,11 @@ public class GameController : MonoBehaviour
         if (curIndex >= 0)
         {
             pickSound.Play();
+            CorgiTextindicator2.SetActive(true);
         }
         curIndex++;
     }
+
 
     /*public void gotoPrevItem()
     {
@@ -80,9 +84,19 @@ public class GameController : MonoBehaviour
         if (!wrongSound.isPlaying)
         {
             wrongSound.Play();
+            CorgiTextindicator1.SetActive(true);
+        }
+        else
+        {
+            StartCoroutine (Corgishutdown());
         }
     }
-
+    IEnumerator Corgishutdown()
+    {
+        yield return new WaitForSeconds(3);
+        CorgiTextindicator1.SetActive(false);
+        CorgiTextindicator2.SetActive(false);
+    }
 
     void EndGame()
     {
@@ -109,7 +123,7 @@ public class GameController : MonoBehaviour
         if (!stoppedGame)
         {
             time += Time.deltaTime;
-            totalTimeText.text = "Time: " + time.ToString(".00");
+            totalTimeText.text = "Time: " + time.ToString(".0");
         }
         /*else
         {*/
@@ -118,11 +132,22 @@ public class GameController : MonoBehaviour
             // End game
             stoppedGame = true;
             Invoke("EndGame", 3.0f);
-            resultText.text = "Result time: " + time.ToString(".00");
+            resultText.text = "Result time: " + time.ToString(".0");
         }
     }
-        /*}
-    }*/
+
+    void LateUpdate()
+    {
+        Vector3 v = PlayerCamera.transform.position - CorgiTextindicator1.transform.position;
+        v.x = v.z = 0.0f;
+        CorgiTextindicator1.transform.LookAt(PlayerCamera.transform.position - v);
+        CorgiTextindicator1.transform.Rotate(0, 0, 0);
+
+        Vector3 a = PlayerCamera.transform.position - CorgiTextindicator2.transform.position;
+        a.x = a.z = 0.0f;
+        CorgiTextindicator2.transform.LookAt(PlayerCamera.transform.position - a);
+        CorgiTextindicator2.transform.Rotate(0, 0, 0);
+    }
 
     public void registerComponent(GameComponent newComponent)
     {
@@ -185,13 +210,4 @@ public class GameController : MonoBehaviour
         }
         return m_players[0];
     }
-
-    // Start is called before the first frame update
-    /*  void Start() {
-      }
-  */
-    // Update is called once per frame
-    // void Update() {
-        // Debug.Log("Num Objects: " + m_components.Count);
-    // }
 }
